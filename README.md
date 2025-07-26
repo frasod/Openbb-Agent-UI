@@ -1,3 +1,6 @@
+<img width="932" height="485" alt="image" src="https://github.com/user-attachments/assets/adbe43c1-e94c-4347-9f31-396e24235b0d" />
+
+
 # OpenBB Financial Agent
 
 A sophisticated financial analysis agent that combines the power of OpenBB Platform with Large Language Models to provide autonomous financial research and analysis capabilities with real-time data visualization.

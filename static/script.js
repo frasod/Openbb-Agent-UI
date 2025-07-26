@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const terminalContent = document.getElementById('terminal-content');
     const toggleTerminal = document.getElementById('toggle-terminal');
     const terminalSpinner = document.getElementById('terminal-spinner');
+    const mainContent = document.querySelector('.main-content');
     
     // API Key elements
     const apiKeySection = document.getElementById('api-key-section');
@@ -60,6 +61,27 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleTerminal.addEventListener('click', () => {
         terminalSidebar.classList.toggle('collapsed');
         toggleTerminal.textContent = terminalSidebar.classList.contains('collapsed') ? '+' : '−';
+        
+        // Adjust main content margin/padding for different screen sizes
+        const isMobile = window.innerWidth <= 768;
+        
+        if (terminalSidebar.classList.contains('collapsed')) {
+            if (isMobile) {
+                mainContent.style.marginBottom = '50px';
+                mainContent.style.marginLeft = '0';
+            } else {
+                mainContent.style.marginLeft = '50px';
+                mainContent.style.marginBottom = '0';
+            }
+        } else {
+            if (isMobile) {
+                mainContent.style.marginBottom = '200px';
+                mainContent.style.marginLeft = '0';
+            } else {
+                mainContent.style.marginLeft = '320px';
+                mainContent.style.marginBottom = '0';
+            }
+        }
     });
 
     // --- Provider Management ---
