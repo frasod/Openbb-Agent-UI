@@ -2,30 +2,6 @@
 
 A sophisticated financial analysis agent that combines the power of OpenBB Platform with Large Language Models to provide autonomous financial research and analysis capabilities with real-time data visualization.
 
-## 🎥 **Demo Video**
-
-> **Coming Soon!** Watch the OpenBB Agent UI in action - from API key setup to live financial chart generation.
-
-<!-- 
-Placeholder for demo video - replace with actual video once recorded:
-
-For GitHub video upload:
-https://user-images.githubusercontent.com/YOUR_USERNAME/demo-video.mp4
-
-For GIF:
-![OpenBB Agent UI Demo](https://github.com/frasod/OpenBB-Agent-UI/assets/demo.gif)
-
-For YouTube embed:
-[![OpenBB Agent UI Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
--->
-
-**✨ See it in action:**
-- 🔑 Seamless API key configuration
-- 📊 Real-time chart generation with live market data  
-- 🧠 Multi-tool financial analysis with BLUF summaries
-- ⭕ Live terminal showing processing steps
-- 🎨 Professional Braun-inspired UI design
-
 ## Features
 
 ### 🎯 Core Capabilities
