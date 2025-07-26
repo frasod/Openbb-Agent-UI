@@ -57,13 +57,38 @@ coverage.xml
 # VS Code
 .vscode/
 
-# Secret files
+# SECURITY: Environment and API Keys
 .env
 .env.*
+.env.local
+.env.development
+.env.production
+.env.test
+*.env
+secrets/
+config/secrets.json
+api_keys.txt
+credentials.json
+auth.json
+
+# SECURITY: OpenBB Configuration
+~/.openbb_platform/user_settings.json
+user_settings.json
+openbb_config.json
+
+# SECURITY: Any files containing API keys or secrets
+*api_key*
+*secret*
+*token*
+*credentials*
+.secrets
+secrets.py
+config_private.py
 
 # Docker
 *.dockerignore
-Dockerfile*
+docker-compose.override.yml
+docker-compose.prod.yml
 
 # OS files
 .DS_Store
@@ -71,14 +96,46 @@ Thumbs.db
 
 # Logs
 *.log
+logs/
 
-# Misc
+# Temporary files
 *.bak
 *.swp
 *.tmp
+.temp/
+temp/
 
-# Ignore docs and onboarding files from commits
-README.md
-DEV_LOG.md
-.env.example
-.dockerignore
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE files
+.idea/
+*.iml
+.vscode/settings.json
+
+# Node modules (if any frontend dependencies)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Coverage reports
+htmlcov/
+.coverage
+
+# Documentation builds (but allow committed docs)
+site/
+_build/
+
+# Allow important documentation files
+!README.md
+!DEV_LOG.md
+!ENHANCEMENT_PLAN.md
+!GIT_COMMIT_GUIDE.md
