@@ -356,17 +356,19 @@ h1 {
 
 /* Input Container */
 .input-container {
-    position: sticky;
-    bottom: 0;
-    background-color: #f4f4f5;
     padding: 1rem 0;
-    margin-top: 2rem;
+    margin: 1.5rem 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 #query-form {
     display: flex;
     gap: 0.75rem;
     align-items: stretch;
+    padding: 0 1rem;
 }
 
 #query-input {
