@@ -1,335 +1,257 @@
-# OpenBB Comprehensive Agent with Data Science Integration
+# OpenBB Financial Agent
 
-A comprehensive OpenBB agent featuring advanced data processing, machine learning capabilities, and financial web search integration. Built with FastAPI and designed for seamless integration with OpenBB Workspace.
+A sophisticated financial analysis agent that combines the power of OpenBB Platform with Large Language Models to provide autonomous financial research and analysis capabilities with real-time data visualization.
 
-## 🚀 Features
+## Features
 
-### Core Capabilities
-- **Multi-format Data Processing**: PDF, Excel, CSV, JSON support
-- **Interactive Visualizations**: Charts, tables, and financial visualizations
-- **Real-time Web Search**: Financial news and market data integration
-- **Machine Learning Ready**: Prepared for ML model integration
-- **Error Handling**: Robust error recovery and validation
-- **Citation Management**: Source attribution and reference tracking
+### 🎯 Core Capabilities
+- **Agentic Financial Analysis**: Multi-pass LLM interaction with intelligent OpenBB tool selection
+- **Real-time Data**: Latest financial news, historical prices, and live market data (250+ data points)
+- **Interactive Charts**: Professional candlestick charts with actual market data from multiple providers
+- **Custom Analysis**: Flexible prompt templates for different investment perspectives and contexts
+- **BLUF Analysis**: Bottom Line Up Front summaries with Bullish/Neutral/Bearish classifications
 
-### Advanced Features
-- **Financial Web Search**: Real-time news aggregation with sentiment analysis
-- **Data Correlation**: Sentiment-price correlation analysis
-- **Alert System**: Configurable alerts for market events
-- **Performance Monitoring**: Built-in performance tracking
-- **Multi-Model Support**: Ollama, OpenAI, and other LLM providers
+### 🎨 Modern Interface
+- **Braun-Inspired Design**: Clean, minimalist UI following Dieter Rams principles
+- **Dynamic Tool Selection**: Choose from news, historical data, and chart generation tools
+- **Smart Suggestions**: Context-aware prompt examples for selected tools
+- **Rich Output**: Markdown formatting with metadata and interactive elements
+- **Template System**: Save and manage custom analysis contexts
 
-### Data Science Integration
-- **Statistical Analysis**: Descriptive statistics and hypothesis testing
-- **Risk Analytics**: VaR, Sharpe ratio, and risk metrics
-- **Feature Engineering**: Automated feature generation for ML
-- **Model Management**: Framework for ML model deployment
-- **Visualization Engine**: Statistical plots and ML output displays
+### 🛠 Technical Features
+- **Docker Containerized**: Easy deployment and development with automatic rebuilds
+- **Multi-Provider Support**: OpenAI, OpenRouter, and Ollama with dynamic switching
+- **API Key Management**: Integrated UI for secure API key configuration and validation
+- **Error Resilient**: Comprehensive error handling with graceful degradation
+- **Performance Optimized**: Efficient API usage and resource management
 
-## 📦 Installation
+### 📊 Chart Generation
+- **Live Market Data**: Real-time financial data from yfinance, intrinio, polygon, and FMP
+- **Interactive Visualization**: Professional Plotly candlestick charts with OHLC data
+- **Smart Fallbacks**: Automatic provider switching when API keys are unavailable
+- **Data Validation**: Comprehensive validation ensuring accurate price representations
+
+### ⚡ Real-time Experience
+- **Activity Indicators**: Spinning terminal icon shows processing status
+- **Progress Tracking**: Live updates during data fetching, analysis, and chart generation
+- **Instant Feedback**: Real-time API key validation and configuration status
+- **Terminal Logging**: Detailed progress messages with emoji indicators
+
+## Quick Start
 
 ### Prerequisites
-- Python 3.10 or higher
-- OpenBB AI SDK
-- Git
+- Docker and Docker Compose
+- OpenAI API key (recommended) or OpenRouter API key
+- OpenBB Platform access (optional: OpenBB Hub PAT for enhanced data access)
 
-### Quick Start
+### Installation
 
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd comprehensive-agent
+   cd Comprehensive-Openbb-Agent
    ```
 
-2. **Install dependencies**
+2. **Start the application**
    ```bash
-   pip install -r requirements.txt
-   pip install -r requirements-ml.txt
+   docker compose up --build -d
    ```
 
-3. **Configure environment**
-   ```bash
-   # Copy example configuration
-   cp config.example.py config.py
-   # Edit config.py with your settings
-   ```
+3. **Access the interface**
+   Open your browser to `http://localhost:7777`
 
-4. **Run the agent**
-   ```bash
-   # Using Python
-   python -m comprehensive_agent.main
-   
-   # Using startup script
-   ./start.sh        # Linux/Mac
-   start.bat         # Windows
-   ```
+4. **Configure API Keys (Easy Setup)**
+   - Select your preferred LLM provider (OpenAI or OpenRouter)
+   - The API Key Configuration section will appear automatically
+   - Enter your API key and click "Test" to validate
+   - Click "Save to .env" to store securely
+   - Restart with `docker compose up --build -d`
 
-5. **Access the agent**
-   - Agent will be available at `http://localhost:7777`
-   - Register with OpenBB Workspace using the agents.json endpoint
+## Usage
 
-## 🔧 Configuration
+### Basic Workflow
+1. **Configure Provider**: Select and configure your LLM provider with API keys
+2. **Select Tools**: Choose from available agentic tools (news, historical data, charts)
+3. **Use Suggestions**: Click on suggested prompts or write custom queries
+4. **Set Context**: Optionally customize the analysis perspective with templates
+5. **Analyze**: Submit your query and receive comprehensive financial analysis
+6. **Explore**: Interact with charts and copy formatted results
 
-### Environment Variables
-```bash
-# LLM Configuration
-OLLAMA_BASE_URL=http://localhost:11434
-OLLAMA_MODEL=gemma2:9b
+### Example Queries
+- "Get the latest news for AAPL"
+- "Provide historical price levels for Tesla over the last year"
+- "Show me a financial chart for Microsoft stock"
+- "What's the Apple outlook for 2026 with historical price levels and financial charts"
+- "Create a technical analysis of NVDA with price history and recent news"
+
+### Template System
+Create custom analysis contexts:
+- **Neutral**: Standard financial assistant (default)
+- **Bullish Outlook**: Optimistic investment perspective
+- **Risk Assessment**: Conservative risk-focused analysis
+- **Technical Analysis**: Chart and indicator focused
+- **Custom Templates**: Save your own analysis styles
+
+## Configuration
+
+### API Key Management
+The application includes an integrated API key management system:
+
+#### OpenAI Setup
+1. Visit [OpenAI API Keys](https://platform.openai.com/api-keys)
+2. Create an account and generate an API key
+3. In the app, select "OpenAI" as provider
+4. Enter your key and click "Test" then "Save to .env"
+
+#### OpenRouter Setup
+1. Visit [OpenRouter Keys](https://openrouter.ai/keys)
+2. Create an account and generate an API key
+3. In the app, select "OpenRouter" as provider
+4. Enter your key and click "Test" then "Save to .env"
+
+#### Ollama (Local)
+1. Install [Ollama](https://ollama.ai/download)
+2. Select "Ollama (Local)" - no API key required
+3. Ensure Ollama is running on `localhost:11434`
+
+### Environment Variables (Advanced)
+For manual configuration, create a `.env` file:
+```env
+# LLM Provider Configuration
+LLM_PROVIDER=openai
+OPENAI_API_KEY=your_openai_api_key_here
+OPENAI_MODEL=gpt-4o-mini
+
+# Alternative: OpenRouter
+# LLM_PROVIDER=openrouter
+# OPENROUTER_API_KEY=your_openrouter_key_here
+# OPENROUTER_MODEL=anthropic/claude-3.5-sonnet
+
+# Alternative: Ollama (Local)
+# LLM_PROVIDER=ollama
+# OLLAMA_MODEL=gemma2:9b
+# OLLAMA_BASE_URL=http://localhost:11434
 
 # Server Configuration
-SERVER_HOST=0.0.0.0
 SERVER_PORT=7777
-
-# OpenBB Integration
-OPENBB_API_KEY=your_api_key_here
+CONNECTION_TIMEOUT=10.0
+READ_TIMEOUT=30.0
 ```
 
-### Model Configuration
-The agent supports multiple LLM providers:
-- **Ollama** (default): Local inference
-- **OpenAI**: Cloud-based inference
-- **OpenRouter**: Multiple model access
-- **Google GenAI**: Gemini models
+### OpenBB Configuration
+For enhanced data access, configure OpenBB credentials:
+- Set up local credentials in `~/.openbb_platform/user_settings.json`
+- Or use OpenBB Hub Personal Access Token (PAT)
 
-## 🎯 Usage
+## Architecture
 
-### Basic Query
-```python
-{
-    "messages": [
-        {"role": "human", "content": "Analyze AAPL stock performance"}
-    ],
-    "widgets": {
-        "primary": [
-            {
-                "uuid": "stock-analysis-widget",
-                "widget_id": "equity_price_historical",
-                "params": [{"name": "symbol", "current_value": "AAPL"}]
-            }
-        ]
-    }
-}
+### System Design
+```
+Frontend (Vanilla JS) ↔ FastAPI Backend ↔ OpenBB Platform (Multi-Provider)
+                                      ↔ LLM APIs (OpenAI/OpenRouter/Ollama)
 ```
 
-### Advanced Analytics
-```python
-# Statistical Analysis
-"Calculate descriptive statistics and risk metrics for this portfolio"
+### Key Components
+- **Frontend**: Clean, responsive web interface with Braun-inspired design
+- **Agent Core**: Multi-pass LLM orchestration with intelligent tool execution
+- **OpenBB Tools**: Financial data retrieval with automatic provider fallbacks
+- **Configuration**: Flexible environment-based settings with UI management
+- **Chart Engine**: Real-time Plotly visualization with market data integration
 
-# Machine Learning
-"Train a prediction model for stock price movements"
+### Development Philosophy
+Following core principles inspired by Braun/Dieter Rams:
+- **Efficiency**: Performant, direct solutions with smart provider fallbacks
+- **Minimalism**: Lean code and clean documentation with essential functionality
+- **Function-First**: Every feature serves the primary purpose of financial analysis
+- **Organization**: Clear logical structure and intuitive design patterns
+- **Clarity**: Readable code and transparent operation with real-time feedback
 
-# Risk Analysis
-"Perform VaR analysis with 95% confidence level"
+## Development
 
-# Web-Enhanced Analysis
-"What's the latest news sentiment for Tesla and how does it correlate with price?"
-```
-
-## 🧪 Testing
-
-### Run Tests
+### Local Development
 ```bash
-# Unit tests
-pytest tests/unit/
+# Start in development mode
+docker compose up --build
 
-# Integration tests
-pytest tests/integration/
+# View logs
+docker compose logs -f
 
-# All tests with coverage
-pytest --cov=comprehensive_agent --cov-report=html
+# Stop services
+docker compose down
 ```
 
-### Test Categories
-- **Unit Tests**: Individual component testing
-- **Integration Tests**: Full workflow testing
-- **Performance Tests**: Benchmarking and optimization
-- **Web Search Tests**: Financial search functionality
-
-## 📊 Data Science Features
-
-### Statistical Analysis
-- Descriptive statistics (mean, std, skewness, kurtosis)
-- Correlation analysis and heatmaps
-- Hypothesis testing (t-tests, chi-square)
-- Distribution analysis and normality tests
-
-### Risk Analytics
-- Value at Risk (VaR) calculations
-- Conditional Value at Risk (CVaR)
-- Sharpe ratio and risk-adjusted returns
-- Maximum drawdown analysis
-- Beta and correlation metrics
-
-### Machine Learning
-- Model training and inference framework
-- Feature engineering pipeline
-- Cross-validation and backtesting
-- Model performance monitoring
-- Automated hyperparameter tuning
-
-### Visualization
-- Statistical distribution plots
-- Risk metric visualizations
-- Time series analysis charts
-- Machine learning output displays
-- Interactive financial dashboards
-
-## 🔍 Web Search Integration
-
-### Financial News Search
-```python
-# Automatic news search for financial topics
-"Latest Apple earnings sentiment"
-"Market reaction to Fed rate decision"
-"Tesla production updates impact"
-```
-
-### Features
-- **Real-time Search**: DuckDuckGo integration
-- **Sentiment Analysis**: News sentiment scoring
-- **Price Correlation**: Sentiment-price relationship analysis
-- **Alert System**: Configurable market alerts
-- **Source Attribution**: Proper citation and references
-
-## 🏗️ Architecture
-
-### Core Components
+### Project Structure
 ```
 comprehensive_agent/
-├── core/                 # Core agent logic
-├── processors/           # Data processing modules
-├── visualizations/       # Chart and table generation
-├── utils/               # Utility functions
-├── models/              # ML model management
-└── tools/               # Agent tools and utilities
+├── core/           # Agent orchestration logic
+├── tools/          # OpenBB tool definitions with multi-provider support
+├── visualizations/ # Chart generation utilities
+├── config.py       # Configuration management
+└── main.py         # FastAPI application with API key endpoints
+
+static/             # Frontend assets
+├── index.html      # Main interface with configuration UI
+├── script.js       # Application logic with real-time features
+└── style.css       # Braun-inspired styling with activity indicators
 ```
 
-### Key Processors
-- **Widget Processor**: OpenBB widget data handling
-- **PDF Processor**: Document analysis and extraction
-- **Spreadsheet Processor**: Excel/CSV processing
-- **Web Search Processor**: Real-time information retrieval
-- **Statistical Processor**: Advanced statistical analysis
-- **Risk Processor**: Financial risk calculations
+### Chart Generation
+The application features a robust chart generation system:
+- **Multi-Provider Fallback**: yfinance → intrinio → polygon → FMP
+- **Data Validation**: Comprehensive OHLC validation with positive price checks
+- **Date Handling**: Smart date sequence generation for incomplete datasets
+- **Interactive Charts**: Plotly v2.35.0 with professional candlestick rendering
+- **Error Recovery**: Detailed debugging and graceful fallback to sample data
 
-## 🔧 Development
+## Contributing
 
-### Setup Development Environment
-```bash
-# Install development dependencies
-pip install -r requirements-dev.txt
+We follow clean code principles and maintain high standards:
+- Clear, descriptive commit messages with semantic versioning
+- Comprehensive error handling with user-friendly messages
+- Performance-conscious development with provider optimization
+- User experience focus with real-time feedback
+- Documentation updates with code changes
+- Test coverage for critical functionality
 
-# Install pre-commit hooks
-pre-commit install
+## Troubleshooting
 
-# Run linting
-ruff check .
-black --check .
-isort --check-only .
-```
+### Common Issues
 
-### Code Quality
-- **Black**: Code formatting
-- **isort**: Import sorting
-- **Ruff**: Fast Python linter
-- **MyPy**: Type checking
-- **Pre-commit**: Automated checks
+1. **Charts Not Displaying**
+   - Check browser console (F12) for detailed error messages
+   - Verify OpenBB providers are accessible
+   - Try different stock symbols (AAPL, MSFT, TSLA)
 
-## 📈 Performance
+2. **API Key Issues**
+   - Use the integrated testing feature before saving
+   - Ensure proper provider selection
+   - Restart Docker after saving new keys
 
-### Benchmarks
-- **Query Processing**: <2 seconds for standard queries
-- **Chart Generation**: <1 second for basic charts
-- **Web Search**: <3 seconds for news queries
-- **ML Inference**: <500ms for trained models
-- **Memory Usage**: <200MB baseline
+3. **Docker Issues**
+   - Use `docker compose down && docker compose up --build -d`
+   - Check logs with `docker compose logs -f`
+   - Verify Docker Desktop is running
 
-### Optimization
-- Async processing for I/O operations
-- Caching for frequently accessed data
-- Lazy loading for heavy dependencies
-- Connection pooling for external APIs
-- Efficient data structures for large datasets
+4. **Performance Issues**
+   - Check terminal for provider fallback messages
+   - Verify network connectivity for data providers
+   - Monitor Docker resource usage
 
-## 🐳 Docker Support
+## License
 
-### Build and Run
-```bash
-# Build Docker image
-docker build -t comprehensive-agent .
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-# Run container
-docker run -p 7777:7777 comprehensive-agent
+## Support
 
-# Docker Compose
-docker-compose up -d
-```
-
-### Container Features
-- Multi-stage builds for optimization
-- Health checks and monitoring
-- Environment variable configuration
-- Volume mounting for persistent data
-- Production-ready deployment
-
-## 🤝 Contributing
-
-### Development Process
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Run the test suite
-6. Submit a pull request
-
-### Code Standards
-- Follow PEP 8 style guidelines
-- Add type hints to all functions
-- Include docstrings for all classes and methods
-- Write comprehensive tests
-- Update documentation as needed
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **OpenBB Team**: For the excellent OpenBB platform and AI SDK
-- **FastAPI**: For the high-performance web framework
-- **Ollama**: For local LLM inference capabilities
-- **Contributors**: Thank you to all contributors and testers
-
-## 📞 Support
-
-- **Issues**: Report bugs and request features via GitHub Issues
-- **Documentation**: Comprehensive docs available in the `/docs` directory
-- **Community**: Join discussions in GitHub Discussions
-- **Email**: Contact for enterprise support and consulting
+For issues, feature requests, or questions:
+1. Check the development log for recent changes and known issues
+2. Review Docker logs for runtime issues: `docker compose logs -f`
+3. Ensure API keys are properly configured using the integrated UI
+4. Verify Docker and Docker Compose are correctly installed
+5. Test with different stock symbols and tools
 
 ---
 
-## 🔮 Roadmap
+*Built with ❤️ for the financial analysis community*
 
-### Phase 1 (Current)
-- ✅ Core agent functionality
-- ✅ Multi-format data processing
-- ✅ Web search integration
-- ✅ Basic visualizations
-
-### Phase 2 (Next)
-- 🚧 Advanced ML integration
-- 🚧 Enhanced risk analytics
-- 🚧 Real-time data streaming
-- 🚧 Advanced statistical analysis
-
-### Phase 3 (Future)
-- 📋 Portfolio optimization
-- 📋 Automated backtesting
-- 📋 Custom model training
-- 📋 Advanced visualization dashboard
-
----
-
-**Built with ❤️ for the OpenBB community**
+**Latest Update**: Complete chart generation solution with real market data, integrated API key management, and enhanced user experience with real-time feedback.
